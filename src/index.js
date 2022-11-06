@@ -48,20 +48,22 @@ app.get("/users/:id", async (req, res) => {
 });
 
 // Delete user from API
-app.delete("/delete/:id", async (req, res) => {
+app.delete("/users/:id", async (req, res) => {
   const id = req.params.id;
   try {
     await client.connect();
     const db = client.db(dataBaseName);
-    user = await db.collection("users").deleteOne({ _id: new ObjectId(id) });
+    await db.collection("users").findOneAndDelete({ _id: new ObjectId(id) });
   } catch (error) {
     console.log(error);
   } finally {
     await client.close();
   }
-  res.status(200).send("<p>User was deleted correctly!...");
+
+  res.status(200).send(`<p>User was deleted correctly!... ${id}</p>`);
 });
 
+// Listing on port 3000
 app.listen(port, () => {
   console.log(`Servidor corriendo en el puerto http://localhost:${port}`);
 });
