@@ -53,14 +53,16 @@ app.delete("/users/:id", async (req, res) => {
   try {
     await client.connect();
     const db = client.db(dataBaseName);
-    await db.collection("users").findOneAndDelete({ _id: new ObjectId(id) });
+    deleted = await db
+      .collection("users")
+      .findOneAndDelete({ _id: new ObjectId(id) });
   } catch (error) {
     console.log(error);
   } finally {
     await client.close();
   }
 
-  res.status(200).send(`<p>User was deleted correctly!... ${id}</p>`);
+  res.status(200).send(deleted);
 });
 
 // Listing on port 3000
