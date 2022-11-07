@@ -10,28 +10,29 @@ MongoClient.connect(connectionURL, (error, client) => {
   const db = client.db(dataBaseName);
 
   /************************* CRUD *************************/
-
-  // Insert
-  // db.collection("users").insertMany(
-  //   [
-  //     {
-  //       name: "Josias Matos",
-  //       email: "josias@gmail.com",
-  //       age: 25,
-  //     },
-  //     {
-  //       name: "Josias Matos Batista",
-  //       email: "josiasb@gmail.com",
-  //       age: 25,
-  //     },
-  //   ],
-  //   (error, result) => {
-  //     if (error) {
-  //       return console.log("No se puedo insertar.");
-  //     }
-  //     console.log(result);
-  //   }
-  // );
+  for (i = 0; i < 25; i++) {
+    // Insert;
+    db.collection("users").insertMany(
+      [
+        {
+          name: "Josias Matos",
+          email: "josias@gmail.com",
+          age: 25,
+        },
+        {
+          name: "Josias Matos Batista",
+          email: "josiasb@gmail.com",
+          age: 25,
+        },
+      ],
+      (error, result) => {
+        if (error) {
+          return console.log("No se puedo insertar.");
+        }
+        console.log(result);
+      }
+    );
+  }
 
   //Find
   //   db.collection("users")

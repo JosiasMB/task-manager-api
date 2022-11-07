@@ -1,6 +1,5 @@
 const { MongoClient, ObjectId } = require("mongodb");
 const connectionURL = "mongodb://localhost:27017";
-
 const dataBaseName = "task-manager";
 const express = require("express");
 const port = 3000;
@@ -8,13 +7,26 @@ const app = express();
 
 app.use(express.json());
 let users = [];
+const path = require("path");
+const hbs = require("hbs");
+// Path
+const publicDirectoryPath = path.join(__dirname, "../public");
+const viewsPath = path.join(__dirname, "../templates/views");
+// Se configura el contenido estatico configurando una ruta absoluta
+app.use(express.static(publicDirectoryPath));
 
+// HBS
+app.set("view engine", "hbs");
+app.set("views", viewsPath);
 // MongoClient
 const client = new MongoClient(connectionURL);
 
 // Routes
-app.get("/", (req, res) => {
-  res.send(`<h1>Servidor corriendo en puerto ${port}</h1>`);
+app.get("", (req, res) => {
+  res.render("index", {
+    title: "Home",
+    text: "Users register on Database",
+  });
 });
 
 // Gets complete collection
