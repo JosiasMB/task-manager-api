@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.main {
+  background: url("https://www.youtube.com/embed/G2Qapr0Jsjc");
+  width: 100vw;
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+}
+
+.second {
+  width: 100vw;
+  background-color: blue;
+  height: 30vh;
+}

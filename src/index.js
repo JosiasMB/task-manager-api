@@ -22,27 +22,27 @@ app.set("views", viewsPath);
 const client = new MongoClient(connectionURL);
 
 // Routes
+// Home
 app.get("", (req, res) => {
   res.render("index", {
     title: "Home",
     text: "Users register on Database",
   });
 });
-
-// // Gets complete collection
-app.get("/users", async (req, res) => {
-  try {
-    await client.connect();
-    const db = client.db(dataBaseName);
-    users = await db.collection("users").find({}).toArray();
-  } catch (error) {
-    console.log(error);
-  } finally {
-    await client.close();
-  }
-  res.status(200).send(users);
+// users
+app.get("/users", (req, res) => {
+  res.render("users", {
+    title: "USERS",
+    text: "Users register on Database",
+  });
 });
-
+// about
+app.get("/about", (req, res) => {
+  res.render("about", {
+    title: "ABOUT",
+    text: "Lorem100",
+  });
+});
 // Get only one user from API
 app.get("/users/:id", async (req, res) => {
   const id = req.params.id;
@@ -77,11 +77,18 @@ app.delete("/users/:id", async (req, res) => {
   res.status(200).send(deleted);
 });
 
-app.get("/about", (req, res) => {
-  res.render("about", {
-    title: "ABOUT",
-    text: "Lorem100",
-  });
+// // Gets complete collection
+app.get("/view", async (req, res) => {
+  try {
+    await client.connect();
+    const db = client.db(dataBaseName);
+    users = await db.collection("users").find({}).toArray();
+  } catch (error) {
+    console.log(error);
+  } finally {
+    await client.close();
+  }
+  res.status(200).send(users);
 });
 
 // Listing on port 3000

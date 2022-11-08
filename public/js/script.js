@@ -4,7 +4,7 @@ const section = document.getElementById("section");
 let users = [];
 // Function that gets data from API
 async function getUsers() {
-  const apiUrl = "http://localhost:3000/users";
+  const apiUrl = "http://localhost:3000/view";
   try {
     // fetch request
     const response = await fetch(apiUrl);
