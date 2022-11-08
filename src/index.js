@@ -29,7 +29,7 @@ app.get("", (req, res) => {
   });
 });
 
-// Gets complete collection
+// // Gets complete collection
 app.get("/users", async (req, res) => {
   try {
     await client.connect();
@@ -75,6 +75,13 @@ app.delete("/users/:id", async (req, res) => {
   }
 
   res.status(200).send(deleted);
+});
+
+app.get("/about", (req, res) => {
+  res.render("about", {
+    title: "ABOUT",
+    text: "Lorem100",
+  });
 });
 
 // Listing on port 3000
