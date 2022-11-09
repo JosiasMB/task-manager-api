@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -44,12 +45,31 @@
             </p>
             </div>
             <div class="input">
-              <input type="text" placeholder="Email or name"><span><a class="buscar">Filter user</a> </span>
+              <input type="text" placeholder="Email or name" id="text"><span><button class="buscar" id="buscar">Filter user</button> </span>
             </div>
             <div class="text5">
               <p>
                 If you know how this works, you are on the right path!...
             </p>
+            </div>
+            <div class="card" id="card">
+              <div class="content">
+                <div class="imgBx">
+                  <img src="Img/userImg.png">
+                </div>
+                <div class="contentBx">
+                  <h3>Name<br><span id="name"></span></h3>
+                </div>
+              </div>
+              <ul class="sci">
+                <span><button id="x">X</button></span>
+                <li>ID:<p id="liId"></p>
+                </li>
+                <li>Email:<p id="pEmail"></p>
+                </li>
+                <li>age:<p id="pAge"></p>
+                </li>
+              </ul>
             </div>
           </div>
           <div class="second">
@@ -67,6 +87,7 @@
               <img src="Img/pc2.png" alt="">
             </div>
           </div>
+
         </div>
       <script src="js/script.js"></script>
     </body>

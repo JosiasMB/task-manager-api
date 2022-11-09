@@ -154,3 +154,38 @@ nav a:hover {
   border-color: white;
   border-radius: 7px;
 }
+.input:hover {
+  border: none;
+}
+
+.input {
+  margin-left: 50%;
+}
+
+.input input {
+  padding: 15px;
+  width: 350px;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+}
+.input button {
+  margin-left: 2px;
+  background-color: rgb(230, 155, 44);
+  padding: 14px;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(5, 67, 175);
+  cursor: pointer;
+}
+
+.input button:active {
+  transform: scale(95%);
+}

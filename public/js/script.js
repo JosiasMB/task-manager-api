@@ -1,5 +1,9 @@
 const container = document.getElementById("container");
 const section = document.getElementById("section");
+const buscar = document.getElementById("buscar");
+const card = document.getElementById("card");
+const x = document.getElementById("x");
+const text = document.getElementById("text");
 
 let users = [];
 // Function that gets data from API
@@ -10,7 +14,6 @@ async function getUsers() {
     const response = await fetch(apiUrl);
     users = await response.json();
     displayUsers(users);
-    // displayUsers2(users);
   } catch (error) {
     // catch error
   }
@@ -22,13 +25,6 @@ function displayUsers(users) {
   for (i = 0; i < users.length; i++) {
     let card = document.createElement("div");
     card.classList.add("card");
-    // let id = document.getElementById("id");
-    // id.textContent = users[i]._id;
-
-    // let email = document.createElement("p");
-    // email.textContent = "Email: " + users[i].email;
-    // let age = document.createElement("p");
-    // age.textContent = "Age: " + users[i].age;
     let img = document.createElement("img");
     img.setAttribute("src", "Img/userImg.png");
 
@@ -76,53 +72,33 @@ function displayUsers(users) {
     section.appendChild(container);
   }
 }
-// Function to display data on HTML
-// function displayUsers2(users) {
-//   console.log(users);
-//   for (i = 0; i < users.length; i++) {
-// let card = document.createElement("div");
-// card.classList.add("card");
-// let content = document.createElement("div");
-// content.classList.add("content");
-// let imgBx = document.createElement("div");
-// imgBx.classList.add("imgBx");
-// let img = document.createElement("div");
-// img.setAttribute("src", "Img/userImg.png");
-// let contentBx = document.createElement("div");
-// contentBx.classList.add("contentBx");
-// let h3 = document.createElement("h3");
-// h3.textContent = "ID";
-// let br = document.createElement("br");
-// let span = document.createElement("span");
-// span.textContent = users[i]._id;
-// let name = document.createElement("li");
-// name.textContent = "Name:";
-// let email = document.createElement("li");
-// email.textContent = "email:";
-// let age = document.createElement("li");
-// age.textContent = "age:";
-// let pName = document.createElement("p");
-// pName.textContent = users[i].name;
-// let pEmail = document.createElement("p");
-// pEmail.textContent = users[i].email;
-// let pAge = document.createElement("p");
-// pAge.textContent = users[i].age;
+buscar.addEventListener("click", getUser);
+function see() {
+  card.classList.add("see");
+}
+function none() {
+  card.classList.remove("see");
+}
+x.addEventListener("click", none);
 
-// age.appendChild(pAge);
-// ul.appendChild(age);
-// email.appendChild(pEmail);
-// ul.appendChild(email);
-// name.appendChild(pName);
-// ul.appendChild(name);
-// card.appendChild(ul);
-// he3.appendChild(span);
-// h3.appendChild(br);
-// contentBx.appendChild(h3);
-// content.appendChild(contentBx);
-// imgBx.appendChild(img);
-// content.appendChild(imgBx);
-// card.appendChild(content);
-// container.appendChild(card);
-// section.appendChild(container);
-//   }
-// }
+// Function that gets data from API
+async function getUser() {
+  let id = text.value;
+  const apiUrl = `http://localhost:3000/users/${id}`;
+  see();
+  try {
+    // fetch request
+    const response = await fetch(apiUrl);
+    users = await response.json();
+    displayUser(users);
+  } catch (error) {
+    // catch error
+  }
+}
+
+function displayUser(user) {
+  document.getElementById("name").textContent = user.name;
+  document.getElementById("liId").textContent = user._id;
+  document.getElementById("pEmail").textContent = user.email;
+  document.getElementById("pAge").textContent = user.age;
+}

@@ -18,12 +18,13 @@ app.use(express.static(publicDirectoryPath));
 // HBS
 app.set("view engine", "hbs");
 app.set("views", viewsPath);
+
 // MongoClient
 const client = new MongoClient(connectionURL);
 
 // Routes
 // Home
-app.get("", (req, res) => {
+app.get("/", (req, res) => {
   res.render("index", {
     title: "Home",
     text: "Users register on Database",
@@ -52,7 +53,7 @@ app.get("/users/:id", async (req, res) => {
     const db = client.db(dataBaseName);
     user = await db.collection("users").findOne({ _id: new ObjectId(id) });
   } catch (error) {
-    console.log(error);
+    res.send(error);
   } finally {
     await client.close();
   }
@@ -69,6 +70,7 @@ app.delete("/users/:id", async (req, res) => {
       .collection("users")
       .findOneAndDelete({ _id: new ObjectId(id) });
   } catch (error) {
+    res.send(404);
     console.log(error);
   } finally {
     await client.close();

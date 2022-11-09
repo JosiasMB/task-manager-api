@@ -1,75 +1,27 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Users</title>
-    <link rel="stylesheet" href="css/index.css" />
+    <title>{{{title}}}</title>
+    <link rel="stylesheet" href="css/users.css" />
   </head>
-    <body>
-        <div class="container">
-          <div class="main">
-            <!-- The video -->
-            <video autoplay muted loop id="myVideo">
-              <source src="Img/videoplayback.webm" type="video/mp4">
-            </video>
-            <!-- nav -->
-            <nav>
-              <a href="http://localhost:3000/">Home</a>
-              <a href="http://localhost:3000/users">users</a>
-              <a href="http://localhost:3000/about">About</a>
-            </nav>
-            <!-- Optional: some overlay text to describe the video -->
-            <div class="content">
-              <h1>Powered by Josias</h1>
-            </div>
-            <div class="text">
-              <p>
-                100% build with passion for fun!
-              </p>
-            </div>
-            <div class="text2">
-              <p>
-                Try the best API for Free
-            </p>
-            </div>
-            <div class="text3">
-              <p>
-                Look for users on database
-            </p>
-            </div>
-            <div class="text4">
-              <p>
-                Start now searching for people
-            </p>
-            </div>
-            <div class="input">
-              <input type="text" placeholder="Email or name"><span><a class="buscar">Filter user</a> </span>
-            </div>
-            <div class="text5">
-              <p>
-                If you know how this works, you are on the right path!...
-            </p>
-            </div>
-          </div>
-          <div class="second">
-            <div class="secondOne">
-              <div class="retainer">
-                <h3>
-                  Enjoy the power of Localhost.
-                </h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo porro repellat, nobis amet molestiae modi quidem aut esse.
-                </p>
-              </div>
-            </div>
-            <div class="secondTwo">
-              <img src="Img/pc2.png" alt="">
-            </div>
-          </div>
-        </div>
-      <script src="js/script.js"></script>
-    </body>
+  <body>
+    <nav>
+      <a href="http://localhost:3000/">Home</a>
+      <a href="http://localhost:3000/users">USERS</a>
+      <a href="http://localhost:3000/about">About</a>
+      <a class="input">
+        <input type="text" placeholder="Email or name" id="text" /><span
+          ><button class="buscar" id="buscar">Filter user</button>
+        </span>
+      </a>
+    </nav>
+    <br />
+    <br />
+    <section id="section">
+      <div class="container" id="container"></div>
+    </section>
+    <script src="js/script.js"></script>
   </body>
 </html>
