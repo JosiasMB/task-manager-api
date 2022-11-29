@@ -1,27 +1,56 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{{title}}}</title>
-    <link rel="stylesheet" href="css/users.css" />
+    <title>Formulario Estudiante</title>
+    <link href="css/registro.css" rel="stylesheet" />
   </head>
   <body>
-    <nav>
-      <a href="http://localhost:3000/">Home</a>
-      <a href="http://localhost:3000/users">USERS</a>
-      <a href="http://localhost:3000/about">About</a>
-      <a class="input">
-        <input type="text" placeholder="Email or name" id="text" /><span
-          ><button class="buscar" id="buscar">Filter user</button>
-        </span>
-      </a>
-    </nav>
-    <br />
-    <br />
-    <section id="section">
-      <div class="container" id="container"></div>
-    </section>
-    <script src="js/script.js"></script>
+    <div class="container">
+      <nav id="nav">
+        <a href="/">HOME</a>
+        <a href="#">registro</a>
+        <a href="/student" id="lista">Lista</a>
+      </nav>
+      <form class="form" id="form">
+        <h1>Formulario Estudiantes</h1>
+
+        <h2>Nombres</h2>
+        <input type="text" class="textbox" placeholder="Nombres" id="nombre" />
+
+        <h2>Apellidos</h2>
+        <input
+          type="text"
+          class="textbox"
+          placeholder="Apellidos"
+          id="apellido"
+        />
+
+        <h2>Matricula</h2>
+        <input
+          type="text"
+          class="textbox"
+          placeholder="####-####"
+          id="matricula"
+        />
+        <h2>Curso</h2>
+        <input type="text" class="textbox" placeholder="Curso" id="curso" />
+
+        <h2>Nota</h2>
+        <input type="number" class="textbox" placeholder="Nota" id="nota" />
+        <button type="submit" class="btn-registrar" id="registrar">
+          Registrar
+        </button>
+      </form>
+
+      <div id="confirm">
+        <div class="message">
+          El estudiante ha sido Registrado correctamente...
+        </div>
+      </div>
+    </div>
+    <script src="js/registro.js"></script>
   </body>
 </html>
