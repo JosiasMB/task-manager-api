@@ -20,9 +20,7 @@ nav a {
   padding: 7px;
 }
 nav a:hover {
-  border: solid;
-  border-width: 1px;
-  border-radius: 7px;
+  text-decoration: underline;
 }
 .textAbout {
   text-align: justify;
